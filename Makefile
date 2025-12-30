@@ -7,7 +7,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 
-SRCS = push_swap.c
+SRCS = push_swap.c \
+			 operations.c \
+			 operations2.c \
+			 operations3.c	
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)
