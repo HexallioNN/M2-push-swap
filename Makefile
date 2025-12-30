@@ -10,7 +10,8 @@ CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 SRCS = push_swap.c \
 			 operations.c \
 			 operations2.c \
-			 operations3.c	
+			 operations3.c	\
+			 error_handlers.c
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:15 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 12:55:23 by ikalach          ###   ########.fr       */
+/*   Updated: 2025/12/30 15:18:14 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ void	rr(void);
 void	rra(void);
 void	rrb(void);
 void	rrr(void);
+int		is_number(char *str);
+int		error_handler(int argc, char **argv, int *list);
+int		*fill_list(int argc, char **argv, int *list);
 
 #endif
