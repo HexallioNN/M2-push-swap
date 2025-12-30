@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 15:39:17 by ikalach          ###   ########.fr       */
+/*   Updated: 2025/12/30 16:13:22 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	any_duplicates(int argc, int *list)
+int	any_duplicates(int count, int *list)
 {
 	int	i;
 	int	j;
 	int	tmp;
 
 	i = 0;
-	while (i < argc)
+	while (i < count)
 	{
 		tmp = list[i];
 		j = 0;
-		while (j < argc)
+		while (j < count)
 		{
 			if (tmp == list[j] && j != i)
 			{
@@ -58,12 +58,12 @@ int	any_duplicates(int argc, int *list)
 	return (0);
 }
 
-int	*fill_list(int argc, char **argv, int *list)
+int	*fill_list(int count, char **argv, int *list)
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < count)
 	{
 		list[i] = ft_atoi(argv[i]);
 		i++;
@@ -87,7 +87,7 @@ int	error_handler(int argc, char **argv, int *list)
 		}
 		i++;
 	}
-	if (any_duplicates(argc, list))
+	if (any_duplicates(argc - 1, list))
 	{
 		ft_printf("Error\n");
 		return (1);
