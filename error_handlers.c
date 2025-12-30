@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 15:35:44 by ikalach          ###   ########.fr       */
+/*   Updated: 2025/12/30 15:39:17 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int	any_duplicates(int argc, int *list)
 		while (j < argc)
 		{
 			if (tmp == list[j] && j != i)
+			{
 				return (1);
+			}
 			j++;
 		}
 		i++;
