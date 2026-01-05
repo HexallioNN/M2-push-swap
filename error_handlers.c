@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 16:13:22 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/06 00:27:37 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,11 @@ int	error_handler(int argc, char **argv, int *list)
 		}
 		i++;
 	}
+	list = malloc((argc - 1) * sizeof(int));
+	list = fill_list(argc - 1, argv + 1, list);
 	if (any_duplicates(argc - 1, list))
 	{
+		free(list);
 		ft_printf("Error\n");
 		return (1);
 	}
