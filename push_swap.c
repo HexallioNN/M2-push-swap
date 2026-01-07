@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:03:01 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/06 00:26:22 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/07 11:40:57 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 int	main(int argc, char **argv)
 {
-	int	*list;
-	int	*list_b;
+	struct s_Node	*list_a;
+	struct s_Node	*list_b;
 
-	if (error_handler(argc, argv, list))
-	{
-		free(list);
-		return (1);
-	}
-	list_b = malloc((argc - 1) * sizeof(int));
-	free(list_b);
-	free(list);
+	list_a = NULL;
+	list_b = NULL;
+	// if (error_handler(argc, argv, list_a))
+	// {
+	// 	free(list_a);
+	// 	return (1);
+	// }
+	// free(list_b);
+	// free(list_a);
 	return (0);
 }

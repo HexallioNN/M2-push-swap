@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nodeFunctions.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 11:45:48 by ikalach           #+#    #+#             */
+/*   Updated: 2026/01/07 12:37:07 by ikalach          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+#include "push_swap.h"
+
+struct s_Node	*create_node(int data)
+{
+	struct s_Node	*new_node;
+
+	new_node = (struct s_Node *)malloc(sizeof(struct s_Node));
+	if (!new_node)
+	{
+		ft_printf("Error\n");
+		return (NULL);
+	}
+	new_node->data = data;
+	new_node->next = NULL;
+}
+
+struct s_Node	insert_node_beginning(struct s_Node **reference, int data)
+{
+	struct s_Node	*new_node;
+
+	new_node = create_node(data);
+	new_node->next = *reference;
+	*reference = new_node;
+}
+
+struct s_Node	insert_node_end(struct s_Node **reference, int data)
+{
+	struct s_Node	*new_node;
+	struct s_Node	*temp;
+
+	new_node = create_node(data);
+	if (*reference == NULL)
+	{
+		*reference = new_node;
+	}
+	else
+	{
+		temp = *reference;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+		}
+		temp->next = new_node;
+	}
+}
+
+void	print_node(struct s_Node *head)
+{
+	struct s_Node	*temp;
+
+	temp = head;
+	while (temp != NULL)
+	{
+		ft_printf("%d", temp->data);
+		temp = temp->next;
+	}
+}
+
+void	free_list(struct s_Node *reference)
+{
+	struct s_Node	*temp;
+
+	while (reference != NULL)
+	{
+		temp = reference;
+		reference = reference->next;
+		free(temp);
+	}
+}

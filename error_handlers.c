@@ -6,13 +6,28 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/06 00:27:37 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/07 11:51:25 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+
+/*
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+change everything to be able to work with struct instead of arrays
+
+is number and error handler parts before fill list stays the
+same to check the arguments given after that change functions
+including fill_list to make it work with linked lists instead
+of arrays and that should fix this part
+*/
 
 int	is_number(char *str)
 {
