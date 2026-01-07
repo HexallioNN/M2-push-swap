@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:03:01 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/07 11:40:57 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/07 12:54:48 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	main(int argc, char **argv)
 
 	list_a = NULL;
 	list_b = NULL;
-	// if (error_handler(argc, argv, list_a))
-	// {
-	// 	free(list_a);
-	// 	return (1);
-	// }
-	// free(list_b);
-	// free(list_a);
+	if (error_handler(argc, argv, &list_a))
+	{
+		free_list(&list_a);
+		return (1);
+	}
+	free_list(&list_a);
+	free_list(&list_b);
 	return (0);
 }

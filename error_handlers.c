@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/07 11:51:25 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/07 12:52:34 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	any_duplicates(int count, int *list)
+// fix this to work with linked lists
+int	any_duplicates(int count, struct s_Node *head)
 {
 	int	i;
 	int	j;
@@ -73,20 +74,19 @@ int	any_duplicates(int count, int *list)
 	return (0);
 }
 
-int	*fill_list(int count, char **argv, int *list)
+void	*fill_list(int count, char **argv, struct s_Node *head)
 {
 	int	i;
 
 	i = 0;
 	while (i < count)
 	{
-		list[i] = ft_atoi(argv[i]);
+		insert_node_end(&head, ft_atoi(argv[i]));
 		i++;
 	}
-	return (list);
 }
 
-int	error_handler(int argc, char **argv, int *list)
+int	error_handler(int argc, char **argv, struct s_Node *head)
 {
 	int	i;
 
@@ -102,11 +102,10 @@ int	error_handler(int argc, char **argv, int *list)
 		}
 		i++;
 	}
-	list = malloc((argc - 1) * sizeof(int));
-	list = fill_list(argc - 1, argv + 1, list);
-	if (any_duplicates(argc - 1, list))
+	fill_list(argc - 1, argv + 1, &head);
+	if (any_duplicates(argc - 1, &head))
 	{
-		free(list);
+		free_list(&head);
 		ft_printf("Error\n");
 		return (1);
 	}
