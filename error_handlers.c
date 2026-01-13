@@ -6,28 +6,13 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/07 12:52:34 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/13 13:01:06 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
-
-/*
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-change everything to be able to work with struct instead of arrays
-
-is number and error handler parts before fill list stays the
-same to check the arguments given after that change functions
-including fill_list to make it work with linked lists instead
-of arrays and that should fix this part
-*/
 
 int	is_number(char *str)
 {
@@ -49,27 +34,28 @@ int	is_number(char *str)
 	return (1);
 }
 
-// fix this to work with linked lists
-int	any_duplicates(int count, struct s_Node *head)
+int	any_duplicates(int i_count, int j_count, struct s_Node *head)
 {
-	int	i;
-	int	j;
-	int	tmp;
+	struct s_Node	*i;
+	struct s_Node	*j;
+	int				tmp;
 
-	i = 0;
-	while (i < count)
+	i = head;
+	while (i != NULL)
 	{
-		tmp = list[i];
-		j = 0;
-		while (j < count)
+		tmp = i->data;
+		j = head;
+		while (j != NULL)
 		{
-			if (tmp == list[j] && j != i)
+			if (tmp == j->data && j_count != i_count)
 			{
 				return (1);
 			}
-			j++;
+			j = j->next;
+			j_count++;
 		}
-		i++;
+		i = i->next;
+		i_count++;
 	}
 	return (0);
 }
@@ -103,7 +89,7 @@ int	error_handler(int argc, char **argv, struct s_Node *head)
 		i++;
 	}
 	fill_list(argc - 1, argv + 1, &head);
-	if (any_duplicates(argc - 1, &head))
+	if (any_duplicates(0, 0, &head))
 	{
 		free_list(&head);
 		ft_printf("Error\n");
