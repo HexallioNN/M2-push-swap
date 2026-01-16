@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/13 13:01:06 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/16 15:19:43 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,45 +34,39 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	any_duplicates(int i_count, int j_count, struct s_Node *head)
+int	any_duplicates(struct s_Node *head)
 {
 	struct s_Node	*i;
 	struct s_Node	*j;
-	int				tmp;
 
 	i = head;
-	while (i != NULL)
+	while (i)
 	{
-		tmp = i->data;
-		j = head;
-		while (j != NULL)
+		j = i->next;
+		while (j)
 		{
-			if (tmp == j->data && j_count != i_count)
-			{
+			if (i->data == j->data)
 				return (1);
-			}
 			j = j->next;
-			j_count++;
 		}
 		i = i->next;
-		i_count++;
 	}
 	return (0);
 }
 
-void	*fill_list(int count, char **argv, struct s_Node *head)
+void	fill_list(int count, char **argv, struct s_Node **head)
 {
 	int	i;
 
 	i = 0;
 	while (i < count)
 	{
-		insert_node_end(&head, ft_atoi(argv[i]));
+		insert_node_end(head, ft_atoi(argv[i]));
 		i++;
 	}
 }
 
-int	error_handler(int argc, char **argv, struct s_Node *head)
+int	error_handler(int argc, char **argv, struct s_Node **head)
 {
 	int	i;
 
@@ -88,10 +82,9 @@ int	error_handler(int argc, char **argv, struct s_Node *head)
 		}
 		i++;
 	}
-	fill_list(argc - 1, argv + 1, &head);
-	if (any_duplicates(0, 0, &head))
+	fill_list(argc - 1, argv + 1, head);
+	if (any_duplicates(*head))
 	{
-		free_list(&head);
 		ft_printf("Error\n");
 		return (1);
 	}

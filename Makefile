@@ -11,7 +11,8 @@ SRCS = push_swap.c \
 			 operations.c \
 			 operations2.c \
 			 operations3.c	\
-			 error_handlers.c
+			 error_handlers.c \
+			 nodeFunctions.c
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)

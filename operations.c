@@ -6,31 +6,46 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:30 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 12:52:25 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/16 16:35:39 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// swap the first 2 elements at the top of stack a do nothing if there is less than 2 elements
-void	sa(void)
+#include "ft_printf.h"
+#include "push_swap.h"
+
+void	sa(struct s_Node *head)
 {
+	swap(head);
+	ft_printf("sa\n");
 }
 
-// swap the first 2 elements at the top of stack b do nothing if there is less than 2 elements
-void	sb(void)
+void	sb(struct s_Node *head)
 {
+	swap(head);
+	ft_printf("sb\n");
 }
 
-// sa and sb at the same time
-void	ss(void)
+void	ss(struct s_Node *head, struct s_Node *head2)
 {
+	swap(head);
+	swap(head2);
+	ft_printf("ss\n");
 }
 
-// take the first element of b and put it at the top of a do nothing if b is empty
-void	pa(void)
+void	pa(struct s_Node **head1, struct s_Node **head2)
 {
+	if (*head2 != NULL)
+	{
+		put(head2, head1);
+		ft_printf("pa\n");
+	}
 }
 
-// take the first element of a and put it at the top of b do nothing if a is empty
-void	pb(void)
+void	pb(struct s_Node **head1, struct s_Node **head2)
 {
+	if (*head1 != NULL)
+	{
+		put(head1, head2);
+		ft_printf("pb\n");
+	}
 }

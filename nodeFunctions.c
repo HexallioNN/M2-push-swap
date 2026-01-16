@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:45:48 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/07 12:37:07 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/13 14:41:53 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@ struct s_Node	*create_node(int data)
 	struct s_Node	*new_node;
 
 	new_node = (struct s_Node *)malloc(sizeof(struct s_Node));
-	if (!new_node)
-	{
-		ft_printf("Error\n");
-		return (NULL);
-	}
 	new_node->data = data;
 	new_node->next = NULL;
+	return (new_node);
 }
 
-struct s_Node	insert_node_beginning(struct s_Node **reference, int data)
+void	insert_node_beginning(struct s_Node **reference, int data)
 {
 	struct s_Node	*new_node;
 
@@ -36,7 +32,7 @@ struct s_Node	insert_node_beginning(struct s_Node **reference, int data)
 	*reference = new_node;
 }
 
-struct s_Node	insert_node_end(struct s_Node **reference, int data)
+void	insert_node_end(struct s_Node **reference, int data)
 {
 	struct s_Node	*new_node;
 	struct s_Node	*temp;
@@ -45,16 +41,14 @@ struct s_Node	insert_node_end(struct s_Node **reference, int data)
 	if (*reference == NULL)
 	{
 		*reference = new_node;
+		return ;
 	}
-	else
+	temp = *reference;
+	while (temp->next != NULL)
 	{
-		temp = *reference;
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = new_node;
+		temp = temp->next;
 	}
+	temp->next = new_node;
 }
 
 void	print_node(struct s_Node *head)
@@ -64,9 +58,10 @@ void	print_node(struct s_Node *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		ft_printf("%d", temp->data);
+		ft_printf("%d -> ", temp->data);
 		temp = temp->next;
 	}
+	ft_printf("NULL\n");
 }
 
 void	free_list(struct s_Node *reference)
