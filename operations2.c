@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:15 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/17 15:19:00 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 16:23:30 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 void	ra(struct s_Node **a)
 {
-	if (*a != NULL)
+	struct s_Node	*list_a;
+
+	list_a = *a;
+	if (list_a->next != NULL)
 	{
 		shift_up(a);
 		ft_printf("ra\n");
@@ -24,7 +27,10 @@ void	ra(struct s_Node **a)
 
 void	rb(struct s_Node **b)
 {
-	if (*b != NULL)
+	struct s_Node	*list_b;
+
+	list_b = *b;
+	if (list_b->next != NULL)
 	{
 		shift_up(b);
 		ft_printf("rb\n");
@@ -33,30 +39,49 @@ void	rb(struct s_Node **b)
 
 void	rr(struct s_Node **a, struct s_Node **b)
 {
-	if (*a != NULL && *b != NULL)
+	struct s_Node	*list_a;
+	struct s_Node	*list_b;
+
+	list_a = *a;
+	list_b = *b;
+	if (list_a->next != NULL && list_b->next != NULL)
 	{
 		shift_up(a);
 		shift_up(b);
 		ft_printf("rr\n");
 	}
-	if (*b != NULL)
+	else if (list_b->next != NULL && list_a->next == NULL)
 	{
 		shift_up(b);
 		ft_printf("rb\n");
 	}
-	if (*a != NULL)
+	else if (list_a->next != NULL && list_b->next == NULL)
 	{
 		shift_up(a);
 		ft_printf("ra\n");
 	}
 }
 
-// reverse ra shift down instead of up last element becomes the first one
-void	rra(void)
+void	rra(struct s_Node **a)
 {
+	struct s_Node	*list_a;
+
+	list_a = *a;
+	if (list_a->next != NULL)
+	{
+		shift_down(a);
+		ft_printf("rra\n");
+	}
 }
 
-// reverse rb shift down instead of up last element becomes the first one
-void	rrb(void)
+void	rrb(struct s_Node **b)
 {
+	struct s_Node	*list_b;
+
+	list_b = *b;
+	if (list_b->next != NULL)
+	{
+		shift_down(b);
+		ft_printf("rrb\n");
+	}
 }
