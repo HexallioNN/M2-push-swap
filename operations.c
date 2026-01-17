@@ -6,46 +6,46 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:30 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/16 16:35:39 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 15:10:58 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "push_swap.h"
 
-void	sa(struct s_Node *head)
+void	sa(struct s_Node *a)
 {
-	swap(head);
+	swap(a);
 	ft_printf("sa\n");
 }
 
-void	sb(struct s_Node *head)
+void	sb(struct s_Node *b)
 {
-	swap(head);
+	swap(b);
 	ft_printf("sb\n");
 }
 
-void	ss(struct s_Node *head, struct s_Node *head2)
+void	ss(struct s_Node *a, struct s_Node *b)
 {
-	swap(head);
-	swap(head2);
+	swap(a);
+	swap(b);
 	ft_printf("ss\n");
 }
 
-void	pa(struct s_Node **head1, struct s_Node **head2)
+void	pa(struct s_Node **a, struct s_Node **b)
 {
-	if (*head2 != NULL)
+	if (*b != NULL)
 	{
-		put(head2, head1);
+		put(b, a);
 		ft_printf("pa\n");
 	}
 }
 
-void	pb(struct s_Node **head1, struct s_Node **head2)
+void	pb(struct s_Node **a, struct s_Node **b)
 {
-	if (*head1 != NULL)
+	if (*a != NULL)
 	{
-		put(head1, head2);
+		put(a, b);
 		ft_printf("pb\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:15 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/16 16:29:01 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 15:11:27 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ struct				s_Node
 	struct s_Node	*next;
 };
 
-void				sa(struct s_Node *head);
-void				sb(struct s_Node *head);
-void				ss(struct s_Node *head, struct s_Node *head2);
-void				pa(struct s_Node **head1, struct s_Node **head2);
-void				pb(struct s_Node **head1, struct s_Node **head2);
-void				ra(void);
-void				rb(void);
-void				rr(void);
+void				sa(struct s_Node *a);
+void				sb(struct s_Node *b);
+void				ss(struct s_Node *a, struct s_Node *b);
+void				pa(struct s_Node **a, struct s_Node **b);
+void				pb(struct s_Node **a, struct s_Node **b);
+void				ra(struct s_Node **a);
+void				rb(struct s_Node **b);
+void				rr(struct s_Node **a, struct s_Node **b);
 void				rra(void);
 void				rrb(void);
 void				rrr(void);
 void				swap(struct s_Node *head);
 void				put(struct s_Node **head1, struct s_Node **head2);
-void				shift_up(void);
+void				shift_up(struct s_Node **head);
 void				shift_down(void);
 int					is_number(char *str);
 int					error_handler(int argc, char **argv, struct s_Node **head);

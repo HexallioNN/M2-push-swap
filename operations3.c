@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:40 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/16 16:36:23 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 15:05:18 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,20 @@ void	put(struct s_Node **head1, struct s_Node **head2)
 	*head2 = temp;
 }
 
-// for ra rb and rr
-void	shift_up(void)
+void	shift_up(struct s_Node **head)
 {
+	struct s_Node	*temp;
+	struct s_Node	*loop;
+
+	loop = *head;
+	temp = *head;
+	*head = temp->next;
+	while (loop->next != NULL)
+	{
+		loop = loop->next;
+	}
+	loop->next = temp;
+	temp->next = NULL;
 }
 
 // for rra rrb and rrr

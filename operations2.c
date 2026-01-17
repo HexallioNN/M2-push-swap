@@ -6,23 +6,49 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:15 by ikalach           #+#    #+#             */
-/*   Updated: 2025/12/30 12:52:06 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 15:19:00 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// shift up all elements of stack a by 1 first element becomes the last one
-void	ra(void)
+#include "ft_printf.h"
+#include "push_swap.h"
+
+void	ra(struct s_Node **a)
 {
+	if (*a != NULL)
+	{
+		shift_up(a);
+		ft_printf("ra\n");
+	}
 }
 
-// shift up all elements of stack b by 1 first element becomes the last one
-void	rb(void)
+void	rb(struct s_Node **b)
 {
+	if (*b != NULL)
+	{
+		shift_up(b);
+		ft_printf("rb\n");
+	}
 }
 
-// ra and rb at the same time
-void	rr(void)
+void	rr(struct s_Node **a, struct s_Node **b)
 {
+	if (*a != NULL && *b != NULL)
+	{
+		shift_up(a);
+		shift_up(b);
+		ft_printf("rr\n");
+	}
+	if (*b != NULL)
+	{
+		shift_up(b);
+		ft_printf("rb\n");
+	}
+	if (*a != NULL)
+	{
+		shift_up(a);
+		ft_printf("ra\n");
+	}
 }
 
 // reverse ra shift down instead of up last element becomes the first one

@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:03:01 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/16 16:32:49 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/17 15:17:35 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	main(int argc, char **argv)
 	print_node(list_a);
 	ft_printf("List b:\n");
 	print_node(list_b);
-	pb(&list_a, &list_b);
-	pb(&list_a, &list_b);
-	ss(list_a, list_b);
+	rr(&list_a, &list_b);
 	ft_printf("List a:\n");
 	print_node(list_a);
 	ft_printf("List b:\n");
