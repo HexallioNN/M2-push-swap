@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:15 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/17 16:02:29 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/18 17:20:30 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void				insert_node_beginning(struct s_Node **reference, int data);
 void				insert_node_end(struct s_Node **reference, int data);
 void				print_node(struct s_Node *head);
 void				free_list(struct s_Node *reference);
+void				sort_main(struct s_Node **a, struct s_Node **b, int count);
 
 #endif

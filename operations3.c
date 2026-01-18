@@ -6,14 +6,13 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:40 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/17 16:20:14 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/18 17:12:20 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "push_swap.h"
 
-// rra and rrb at the same time
 void	rrr(struct s_Node **a, struct s_Node **b)
 {
 	struct s_Node	*list_a;
@@ -23,18 +22,18 @@ void	rrr(struct s_Node **a, struct s_Node **b)
 	list_b = *b;
 	if (list_a->next != NULL && list_b->next != NULL)
 	{
-		shift_down(a);
-		shift_down(b);
+		shift_up(a);
+		shift_up(b);
 		ft_printf("rrr\n");
 	}
 	else if (list_b->next != NULL && list_a->next == NULL)
 	{
-		shift_down(b);
+		shift_up(b);
 		ft_printf("rrb\n");
 	}
 	else if (list_a->next != NULL && list_b->next == NULL)
 	{
-		shift_down(a);
+		shift_up(a);
 		ft_printf("rra\n");
 	}
 }
