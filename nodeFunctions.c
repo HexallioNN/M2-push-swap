@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 11:45:48 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/13 14:41:53 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 11:50:03 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_node(struct s_Node *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		ft_printf("%d -> ", temp->data);
+		ft_printf("%d (%d)-> ", temp->data, temp->pos);
 		temp = temp->next;
 	}
 	ft_printf("NULL\n");

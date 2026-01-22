@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:40 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/18 17:12:20 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 12:47:51 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,18 @@ void	rrr(struct s_Node **a, struct s_Node **b)
 	}
 }
 
-void	swap(struct s_Node *head)
+void	swap(struct s_Node **head)
 {
-	struct s_Node	*temp;
-	int				value;
+	struct s_Node	*first;
+	struct s_Node	*second;
 
-	if (head != NULL && head->next != NULL)
-	{
-		value = 0;
-		temp = head;
-		value = head->data;
-		temp = temp->next;
-		head->data = temp->data;
-		temp->data = value;
-	}
+	if (!head || !*head || !(*head)->next)
+		return ;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*head = second;
 }
 
 void	put(struct s_Node **head1, struct s_Node **head2)

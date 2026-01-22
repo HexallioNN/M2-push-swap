@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:13:29 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/18 17:19:39 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 12:55:15 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,38 @@ static void	sort_three(struct s_Node **a)
 	int				is_sorted;
 	int				any_operations;
 
-	any_operations = 0;
-	temp = *a;
+	if (!a || !*a || !(*a)->next || !(*a)->next->next)
+		return ;
 	is_sorted = 0;
-	while (is_sorted != 1)
+	while (!is_sorted)
 	{
+		temp = *a;
 		any_operations = 0;
 		is_sorted = 1;
 		if (temp->data > temp->next->data)
 		{
-			sa(*a);
+			sa(a);
 			any_operations = 1;
 		}
+		temp = *a;
 		if (temp->next->data > temp->next->next->data)
 		{
 			ra(a);
 			any_operations = 1;
 		}
-		temp = *a;
-		if (any_operations == 1)
+		if (any_operations)
 			is_sorted = 0;
 	}
 }
 
-static void	sort_turk(struct s_Node **a, struct s_Node **b)
-{
-}
+// static void	sort_turk(struct s_Node **a, struct s_Node **b)
+// {
+// }
 
-void	sort_main(struct s_Node **a, struct s_Node **b, int count)
+void	sort_main(struct s_Node **a, int count)
 {
-	struct s_Node	*temp;
-	int				is_not_sorted;
+	struct s_Node *temp;
+	int is_not_sorted;
 
 	is_not_sorted = 0;
 	temp = *a;
@@ -62,9 +63,9 @@ void	sort_main(struct s_Node **a, struct s_Node **b, int count)
 		temp = temp->next;
 	}
 	if (count == 2 && is_not_sorted == 1)
-		sa(*a);
+		sa(a);
 	else if (count == 3 && is_not_sorted == 1)
 		sort_three(a);
-	else if (count > 3 && is_not_sorted == 1)
-		sort_turk(&a, &b);
+	// else if (count > 3 && is_not_sorted == 1)
+	// 	sort_turk(&a, &b);
 }

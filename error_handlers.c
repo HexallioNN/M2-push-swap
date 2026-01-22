@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/16 15:19:43 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 11:52:20 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,21 @@ void	fill_list(int count, char **argv, struct s_Node **head)
 	}
 }
 
+static void	fill_pos(struct s_Node **head)
+{
+	struct s_Node	*temp;
+	int				i;
+
+	i = 0;
+	temp = *head;
+	while (temp != NULL)
+	{
+		temp->pos = i;
+		temp = temp->next;
+		i++;
+	}
+}
+
 int	error_handler(int argc, char **argv, struct s_Node **head)
 {
 	int	i;
@@ -83,6 +98,7 @@ int	error_handler(int argc, char **argv, struct s_Node **head)
 		i++;
 	}
 	fill_list(argc - 1, argv + 1, head);
+	fill_pos(head);
 	if (any_duplicates(*head))
 	{
 		ft_printf("Error\n");

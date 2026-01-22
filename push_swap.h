@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:15 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/18 17:20:30 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 12:53:50 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 struct				s_Node
 {
+	int				pos;
 	int				data;
 	struct s_Node	*next;
 };
 
-void				sa(struct s_Node *a);
-void				sb(struct s_Node *b);
-void				ss(struct s_Node *a, struct s_Node *b);
+void				sa(struct s_Node **a);
+void				sb(struct s_Node **b);
+void				ss(struct s_Node **a, struct s_Node **b);
 void				pa(struct s_Node **a, struct s_Node **b);
 void				pb(struct s_Node **a, struct s_Node **b);
 void				ra(struct s_Node **a);
@@ -33,7 +34,7 @@ void				rr(struct s_Node **a, struct s_Node **b);
 void				rra(struct s_Node **a);
 void				rrb(struct s_Node **b);
 void				rrr(struct s_Node **a, struct s_Node **b);
-void				swap(struct s_Node *head);
+void				swap(struct s_Node **head);
 void				put(struct s_Node **head1, struct s_Node **head2);
 void				shift_up(struct s_Node **head);
 void				shift_down(struct s_Node **head);
@@ -46,6 +47,6 @@ void				insert_node_beginning(struct s_Node **reference, int data);
 void				insert_node_end(struct s_Node **reference, int data);
 void				print_node(struct s_Node *head);
 void				free_list(struct s_Node *reference);
-void				sort_main(struct s_Node **a, struct s_Node **b, int count);
+void				sort_main(struct s_Node **a, int count);
 
 #endif

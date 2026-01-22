@@ -6,26 +6,32 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:30 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/17 15:10:58 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/22 12:48:16 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "push_swap.h"
 
-void	sa(struct s_Node *a)
+void	sa(struct s_Node **a)
 {
-	swap(a);
-	ft_printf("sa\n");
+	if (a && *a && (*a)->next)
+	{
+		swap(a);
+		ft_printf("sa\n");
+	}
 }
 
-void	sb(struct s_Node *b)
+void	sb(struct s_Node **b)
 {
-	swap(b);
-	ft_printf("sb\n");
+	if (b && *b && (*b)->next)
+	{
+		swap(b);
+		ft_printf("sb\n");
+	}
 }
 
-void	ss(struct s_Node *a, struct s_Node *b)
+void	ss(struct s_Node **a, struct s_Node **b)
 {
 	swap(a);
 	swap(b);
