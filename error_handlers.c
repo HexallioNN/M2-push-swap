@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/22 11:52:20 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/23 10:36:19 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	error_handler(int argc, char **argv, struct s_Node **head)
 	}
 	fill_list(argc - 1, argv + 1, head);
 	fill_pos(head);
+	rank_finder(head);
 	if (any_duplicates(*head))
 	{
 		ft_printf("Error\n");
