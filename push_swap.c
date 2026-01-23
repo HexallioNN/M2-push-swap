@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:03:01 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/22 12:01:49 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:11:08 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,10 @@ int	main(int argc, char **argv)
 		free_list(list_a);
 		return (1);
 	}
-	sort_main(&list_a, argc - 1);
+	sort_main(&list_a, &list_b, argc - 1);
 	ft_printf("List a:\n");
 	print_node(list_a);
 	free_list(list_a);
 	free_list(list_b);
 	return (0);
 }
-
-// ft_printf("List b:\n");
-// print_node(list_b);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);
-// // sa(list_a);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);
-// pb(&list_a, &list_b);
-// pb(&list_a, &list_b);
-// rrr(&list_a, &list_b);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);
-// pb(&list_a, &list_b);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);
-// pb(&list_a, &list_b);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);
-// pa(&list_a, &list_b);
-// ft_printf("List a:\n");
-// print_node(list_a);
-// ft_printf("List b:\n");
-// print_node(list_b);

@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:13:29 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/23 10:38:11 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/23 14:07:31 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,37 @@ void	rank_finder(struct s_Node **a)
 		j = j->next;
 	}
 }
-// static void	sort_redex(struct s_Node **a, struct s_Node **b)
-// {
-// }
-
-void	sort_main(struct s_Node **a, int count)
+static void	sort_radix(struct s_Node **a, struct s_Node **b, int count)
 {
-	struct s_Node *temp;
-	int is_not_sorted;
+	int	i;
+	int	j;
+	int	max_bits;
+
+	i = 0;
+	max_bits = 0;
+	while ((count) >> max_bits != 0)
+		max_bits++;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (((*a)->rank >> i) & 1)
+				ra(a);
+			else
+				pb(a, b);
+			j++;
+		}
+		while (*b)
+			pa(a, b);
+		i++;
+	}
+}
+
+void	sort_main(struct s_Node **a, struct s_Node **b, int count)
+{
+	struct s_Node	*temp;
+	int				is_not_sorted;
 
 	is_not_sorted = 0;
 	temp = *a;
@@ -87,6 +110,6 @@ void	sort_main(struct s_Node **a, int count)
 		sa(a);
 	else if (count == 3 && is_not_sorted == 1)
 		sort_three(a);
-	// else if (count > 3 && is_not_sorted == 1)
-	// 	sort_redex(&a, &b);
+	else if (count > 3 && is_not_sorted == 1)
+		sort_radix(a, b, count);
 }

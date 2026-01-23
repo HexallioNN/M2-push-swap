@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/23 10:36:19 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/23 11:32:10 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,6 @@ int	any_duplicates(struct s_Node *head)
 	return (0);
 }
 
-void	fill_list(int count, char **argv, struct s_Node **head)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		insert_node_end(head, ft_atoi(argv[i]));
-		i++;
-	}
-}
-
 static void	fill_pos(struct s_Node **head)
 {
 	struct s_Node	*temp;
@@ -79,6 +67,20 @@ static void	fill_pos(struct s_Node **head)
 		temp = temp->next;
 		i++;
 	}
+}
+
+void	fill_list(int count, char **argv, struct s_Node **head)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		insert_node_end(head, ft_atoi(argv[i]));
+		i++;
+	}
+	fill_pos(head);
+	rank_finder(head);
 }
 
 int	error_handler(int argc, char **argv, struct s_Node **head)
@@ -98,8 +100,6 @@ int	error_handler(int argc, char **argv, struct s_Node **head)
 		i++;
 	}
 	fill_list(argc - 1, argv + 1, head);
-	fill_pos(head);
-	rank_finder(head);
 	if (any_duplicates(*head))
 	{
 		ft_printf("Error\n");
