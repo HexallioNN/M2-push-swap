@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:13:29 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/24 12:18:00 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 14:00:52 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,28 @@ static void	sort_radix(struct s_Node **a, struct s_Node **b, int count)
 	}
 }
 
+static void	sort_five(struct s_Node **a, struct s_Node **b, int count)
+{
+	int	size;
+
+	size = count;
+	while (size != 3)
+	{
+		if ((*a)->rank == 0 || (*a)->rank == 1)
+		{
+			pb(a, b);
+			size--;
+		}
+		else
+			ra(a);
+	}
+	sort_three(a);
+	while (*b)
+		pa(a, b);
+	if ((*a)->rank > (*a)->next->rank)
+		sa(a);
+}
+
 void	sort_main(struct s_Node **a, struct s_Node **b, int count)
 {
 	struct s_Node	*temp;
@@ -109,6 +131,8 @@ void	sort_main(struct s_Node **a, struct s_Node **b, int count)
 		sa(a);
 	else if (count == 3 && is_not_sorted == 1)
 		sort_three(a);
-	else if (count > 3 && is_not_sorted == 1)
+	else if (count <= 5 && is_not_sorted == 1)
+		sort_five(a, b, count);
+	else if (count > 5 && is_not_sorted == 1)
 		sort_radix(a, b, count);
 }
