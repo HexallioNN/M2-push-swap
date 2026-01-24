@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:40 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/22 12:47:51 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 12:25:00 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	rrr(struct s_Node **a, struct s_Node **b)
 	list_b = *b;
 	if (list_a->next != NULL && list_b->next != NULL)
 	{
-		shift_up(a);
-		shift_up(b);
+		shift_down(a);
+		shift_down(b);
 		ft_printf("rrr\n");
 	}
 	else if (list_b->next != NULL && list_a->next == NULL)
 	{
-		shift_up(b);
+		shift_down(b);
 		ft_printf("rrb\n");
 	}
 	else if (list_a->next != NULL && list_b->next == NULL)
 	{
-		shift_up(a);
+		shift_down(a);
 		ft_printf("rra\n");
 	}
 }

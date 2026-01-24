@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:13:29 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/23 14:07:31 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 12:18:00 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static void	sort_three(struct s_Node **a)
 	int				is_sorted;
 	int				any_operations;
 
-	if (!a || !*a || !(*a)->next || !(*a)->next->next)
-		return ;
 	is_sorted = 0;
 	while (!is_sorted)
 	{
@@ -35,7 +33,7 @@ static void	sort_three(struct s_Node **a)
 		temp = *a;
 		if (temp->next->data > temp->next->next->data)
 		{
-			ra(a);
+			rra(a);
 			any_operations = 1;
 		}
 		if (any_operations)
@@ -64,6 +62,7 @@ void	rank_finder(struct s_Node **a)
 		j = j->next;
 	}
 }
+
 static void	sort_radix(struct s_Node **a, struct s_Node **b, int count)
 {
 	int	i;
