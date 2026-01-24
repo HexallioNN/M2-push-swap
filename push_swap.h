@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:43:15 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/23 12:49:28 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 15:34:05 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void				shift_up(struct s_Node **head);
 void				shift_down(struct s_Node **head);
 int					is_number(char *str);
 int					error_handler(int argc, char **argv, struct s_Node **head);
-void				fill_list(int count, char **argv, struct s_Node **head);
 int					any_duplicates(struct s_Node *head);
 struct s_Node		*create_node(int data);
 void				insert_node_beginning(struct s_Node **reference, int data);
@@ -50,5 +49,8 @@ void				print_node(struct s_Node *head);
 void				free_list(struct s_Node *reference);
 void				sort_main(struct s_Node **a, struct s_Node **b, int count);
 void				rank_finder(struct s_Node **a);
+void				fill_pos(struct s_Node **head);
+int					list_size(struct s_Node *head);
+void				free_split(char **split);
 
 #endif

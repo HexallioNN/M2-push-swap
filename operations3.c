@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 12:47:40 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/24 12:25:00 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 15:10:24 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void	put(struct s_Node **head1, struct s_Node **head2)
 {
 	struct s_Node	*temp;
 
-	temp = *head1;
+	if (!head1 || !*head1)
+		return ;
+	(temp = *head1);
 	*head1 = temp->next;
 	temp->next = *head2;
 	*head2 = temp;
@@ -67,6 +69,8 @@ void	shift_up(struct s_Node **head)
 	struct s_Node	*temp;
 	struct s_Node	*loop;
 
+	if (!head || !*head || !(*head)->next)
+		return ;
 	loop = *head;
 	temp = *head;
 	*head = temp->next;
@@ -83,6 +87,8 @@ void	shift_down(struct s_Node **head)
 	struct s_Node	*temp;
 	struct s_Node	*loop;
 
+	if (!head || !*head || !(*head)->next)
+		return ;
 	loop = *head;
 	while (loop->next->next != NULL)
 	{

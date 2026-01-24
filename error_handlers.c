@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/23 11:32:10 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/24 15:39:55 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	any_duplicates(struct s_Node *head)
 	return (0);
 }
 
-static void	fill_pos(struct s_Node **head)
+void	fill_pos(struct s_Node **head)
 {
 	struct s_Node	*temp;
 	int				i;
@@ -69,41 +69,44 @@ static void	fill_pos(struct s_Node **head)
 	}
 }
 
-void	fill_list(int count, char **argv, struct s_Node **head)
+int	list_size(struct s_Node *head)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (i < count)
+	count = 0;
+	while (head)
 	{
-		insert_node_end(head, ft_atoi(argv[i]));
-		i++;
+		count++;
+		head = head->next;
 	}
-	fill_pos(head);
-	rank_finder(head);
+	return (count);
 }
 
 int	error_handler(int argc, char **argv, struct s_Node **head)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**split;
 
 	i = 1;
-	if (argc < 2)
-		return (1);
 	while (i < argc)
 	{
-		if (!is_number(argv[i]))
+		split = ft_split(argv[i], ' ');
+		if (!split || !*split)
+			return (free_split(split), ft_printf("Error\n"), 1);
+		j = 0;
+		while (split[j])
 		{
-			ft_printf("Error\n");
-			return (1);
+			if (!is_number(split[j]))
+				return (free_split(split), ft_printf("Error\n"), 1);
+			insert_node_end(head, ft_atoi(split[j]));
+			j++;
 		}
 		i++;
 	}
-	fill_list(argc - 1, argv + 1, head);
 	if (any_duplicates(*head))
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	return (0);
+		return (free_split(split), ft_printf("Error\n"), 1);
+	fill_pos(head);
+	rank_finder(head);
+	return (free_split(split), 0);
 }
