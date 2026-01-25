@@ -6,28 +6,37 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/24 15:39:55 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:05:37 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include <limits.h>
 
-int	is_number(char *str)
+int	is_number(char *str, int j)
 {
-	int	j;
-	int	length;
+	int		sign;
+	long	result;
 
-	j = 0;
-	length = ft_strlen(str);
-	if (!str || length == 0)
-		return (0);
-	if ((str[0] == '-' || str[0] == '+') && length > 1)
+	sign = 1;
+	result = 0;
+	if (str[j] == '-' || str[j] == '+')
+	{
+		if (!str[j + 1])
+			return (0);
+		if (str[j] == '-')
+			sign = -1;
 		j++;
-	while (j < length)
+	}
+	while (str[j])
 	{
 		if (str[j] < '0' || str[j] > '9')
+			return (0);
+		result = result * 10 + (str[j] - '0');
+		if ((sign == 1 && result > INT_MAX)
+			|| (sign == -1 && - result < INT_MIN))
 			return (0);
 		j++;
 	}
@@ -82,13 +91,11 @@ int	list_size(struct s_Node *head)
 	return (count);
 }
 
-int	error_handler(int argc, char **argv, struct s_Node **head)
+int	error_handler(int argc, char **argv, struct s_Node **head, int i)
 {
-	int		i;
 	int		j;
 	char	**split;
 
-	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
@@ -97,7 +104,7 @@ int	error_handler(int argc, char **argv, struct s_Node **head)
 		j = 0;
 		while (split[j])
 		{
-			if (!is_number(split[j]))
+			if (!is_number(split[j], 0))
 				return (free_split(split), ft_printf("Error\n"), 1);
 			insert_node_end(head, ft_atoi(split[j]));
 			j++;
