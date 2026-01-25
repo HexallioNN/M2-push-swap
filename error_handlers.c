@@ -6,7 +6,7 @@
 /*   By: ikalach <ikalach@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 13:16:44 by ikalach           #+#    #+#             */
-/*   Updated: 2026/01/25 17:05:37 by ikalach          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:37:55 by ikalach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,20 +100,21 @@ int	error_handler(int argc, char **argv, struct s_Node **head, int i)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split || !*split)
-			return (free_split(split), ft_printf("Error\n"), 1);
+			return (ft_printf("Error\n"), 1);
 		j = 0;
 		while (split[j])
 		{
 			if (!is_number(split[j], 0))
-				return (free_split(split), ft_printf("Error\n"), 1);
+				return (ft_printf("Error\n"), 1);
 			insert_node_end(head, ft_atoi(split[j]));
 			j++;
 		}
+		free_split(split);
 		i++;
 	}
 	if (any_duplicates(*head))
-		return (free_split(split), ft_printf("Error\n"), 1);
+		return (ft_printf("Error\n"), 1);
 	fill_pos(head);
 	rank_finder(head);
-	return (free_split(split), 0);
+	return (0);
 }
