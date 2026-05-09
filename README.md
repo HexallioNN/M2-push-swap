@@ -32,6 +32,7 @@ Example:
 ```bash
 ./push_swap 3 42 1 9 0
 ```
+<img width="700" height="804" alt="SimpleScreenRecorder May 9 2026" src="https://github.com/user-attachments/assets/1b87768b-5061-419e-becf-0377dc3996f5" />
 
 ### Notes
 - Only valid integer inputs are accepted.
